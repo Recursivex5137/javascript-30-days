@@ -1,4 +1,6 @@
 import './index.css';
+import Vue from 'vue';
+import VueApp from './components/App.vue';
 
 // bar
 // measure 16 total 
@@ -18,43 +20,43 @@ import './index.css';
 const appData = {
   bpm: 80,
   drums: [{
-      id: 'hat',
-      img: '',
-      sound: '',
-    },
-    {
-      id: 'snare',
-      img: '',
-      sound: '',
-    },
-    {
-      id: 'toms',
-      img: '',
-      sound: '',
-    },
-    {
-      id: 'hihat',
-      img: '',
-      sound: '',
-    },
+    id: 'hat',
+    img: '',
+    sound: '',
+  },
+  {
+    id: 'snare',
+    img: '',
+    sound: '',
+  },
+  {
+    id: 'toms',
+    img: '',
+    sound: '',
+  },
+  {
+    id: 'hihat',
+    img: '',
+    sound: '',
+  },
   ],
   measure: [
     {
       placeInMeasure: 1,
       drum: 'hat'
-    }, 
+    },
     {
       placeInMeasure: 5,
       drum: 'snare'
-    }, 
+    },
     {
       placeInMeasure: 13,
       drum: 'snare'
-    }, 
+    },
     {
       placeInMeasure: 15,
       drum: 'tom'
-    }, 
+    },
   ]
 }
 
@@ -86,8 +88,21 @@ const createHtmlElement = (type) => {
   return document.createElement(type)
 }
 
+
+
+
 let hi = createHtmlElement(htmlTag.h1);
 changeInnerHTML(hi, 'Hi there!');
 
+let app = createHtmlElement(htmlTag.div);
+changeInnerHTML(app, hi);
 
-document.body.appendChild(hi);
+
+// document.body.appendChild(app);
+
+
+var vueApp = new Vue({
+  el: '#app',
+  render: h => h(VueApp)
+})
+
